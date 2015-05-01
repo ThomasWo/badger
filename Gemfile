@@ -5,6 +5,7 @@ gem "rails", "4.2"
 
 gem "bcrypt"
 gem "coffee-rails"
+gem "devise"
 gem "jbuilder"
 gem "jquery-rails"
 gem "pg"
