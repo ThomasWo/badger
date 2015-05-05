@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     order("last_name asc, first_name asc")
   end
 
+  def name
+    [first_name, last_name].join(" ")
+  end
+
   def role
     if admin || super_admin
       "Admin"
