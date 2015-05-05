@@ -3,4 +3,22 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable,
          :rememberable, :trackable, :validatable
+
+  validates :first_name, :last_name, presence: true
+
+  def self.alphabetical
+    order("last_name asc, first_name asc")
+  end
+
+  def name
+    [first_name, last_name].join(" ")
+  end
+
+  def role
+    if admin || super_admin
+      "Admin"
+    else
+      "Standard"
+    end
+  end
 end
