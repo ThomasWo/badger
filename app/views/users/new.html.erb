@@ -1,0 +1,17 @@
+<%= form_for @user do |form| %>
+  <%= form.label :first_name, "First Name" %>
+  <%= form.text_field :first_name %>
+  <%= form.label :last_name, "Last Name" %>
+  <%= form.text_field :last_name %>
+  <%= form.label :email, "Email" %>
+  <%= form.text_field :email %>
+  <%= form.label :password, "Password" %>
+  <%= form.password_field :password %>
+
+  <% if current_user.super_admin %>
+    <%= form.label :admin, "Admin?" %>
+    <%= form.check_box :admin %>
+  <% end %>
+
+  <%= form.submit %>
+<% end %>
