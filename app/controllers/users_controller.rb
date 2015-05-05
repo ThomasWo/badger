@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:edit, :update]
+
   def index
     @users = User.alphabetical
   end
@@ -17,7 +19,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update_attributes(user_params)
+      flash[:notice] = "Successfully updated user."
+      redirect_to users_path
+    else
+      flash[:alert] = "Unable to update user."
+      render :edit
+    end
+  end
+
   private
+
+  def find_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :super_admin, :admin)
