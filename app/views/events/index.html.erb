@@ -1,0 +1,20 @@
+<h2>Events</h2>
+
+<%= link_to "Add Event", new_event_path %>
+
+<table>
+  <tr>
+    <th>Event Name</th>
+    <th></th>
+  </tr>
+
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td>
+        <%= link_to "Edit", edit_event_path(event) %>
+        <%= link_to "Remove", event_path(event), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
