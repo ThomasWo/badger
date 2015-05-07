@@ -10,6 +10,9 @@
 # Ignore ruby version.
 /.ruby-version
 
+# Ignore local CarrierWave file uploads
+/public/uploads
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
