@@ -1,0 +1,13 @@
+<%= form_for @event do |form| %>
+  <%= form.label :name, "Event Name" %>
+  <%= form.text_field :name %>
+  <%= form.label :logo, "Logo" %>
+  <meta>This logo will the image used if you want to print the logo on a badge.</meta>
+  <%= form.file_field :logo %>
+  <%= form.label :start_date, "Date Event Starts" %>
+  <%= form.date_field :start_date %>
+  <%= form.label :start_date, "Date Event Ends" %>
+  <%= form.date_field :end_date %>
+
+  <%= form.submit %>
+<% end %>
