@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events
+  resources :attendees
   root "home#index"
 end
