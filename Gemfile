@@ -4,6 +4,7 @@ ruby "2.2.2"
 gem "rails", "4.2"
 
 gem "bcrypt"
+gem "carrierwave"
 gem "coffee-rails"
 gem "devise"
 gem "jbuilder"
