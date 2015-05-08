@@ -117,7 +117,11 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pdf-core (0.2.5)
     pg (0.18.1)
+    prawn (1.2.1)
+      pdf-core (~> 0.2.5)
+      ttfunk (~> 1.2.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -194,6 +198,7 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    ttfunk (1.2.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -216,6 +221,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   pg
+  prawn
   pry-rails
   rails (= 4.2)
   rspec-rails

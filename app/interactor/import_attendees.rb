@@ -16,7 +16,7 @@ class ImportAttendees
     require "csv"
 
     CSV.foreach(file.path, headers: true) do |row|
-      attendee = Attendee.find_or_create_by(email: row['Email_Address'], event_id: context.event_id)
+      attendee = Attendee.find_or_create_by(email: row['Email_Address'], event: context.event)
 
       attendee.update_attributes(
         first_name: row['first_Name'],
@@ -25,16 +25,18 @@ class ImportAttendees
       )
 
       case row['RegTypeDescription']
-      when /Sponsor/, /Sponsor Guest/
+      when /Sponsor/, /Sponsor Guest/, /SoftwareGR Board Member/, /GLSEC/
         attendee.update_attribute(:role, Role.find_by(name: "Sponsor"))
-      when /SoftwareGR Board Member/, /GLSEC/
-        attendee.update_attribute(:role, Role.find_by(name: "Organizer"))
       when /Guest/
         attendee.update_attribute(:role, Role.find_by(name: "Speaker"))
       when /Volunteer/
         attendee.update_attribute(:role, Role.find_by(name: "Volunteer"))
       else
         attendee.update_attribute(:role, Role.find_by(name: "Attendee"))
+      end
+
+      if context.event.sponsor_companies.include?(attendee.company.try(:downcase))
+        attendee.update_attribute(:role, Role.find_by(name: "Sponsor"))
       end
     end
   end

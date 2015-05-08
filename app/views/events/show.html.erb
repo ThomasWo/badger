@@ -1,0 +1,17 @@
+<h2><%= @event.name %></h2>
+
+<%= link_to "View Attendees", event_attendees_path(@event) %>
+<%= link_to "Generate Badges", export_event_attendees_path(@event) %>
+
+
+<%= link_to "Edit", edit_event_path(@event) %>
+<%= link_to "Remove", event_path(@event), method: :delete %>
+<div>
+<%= image_tag(@event.logo) %>
+</div>
+<h3>Roles</h3>
+<ul>
+<% @event.roles.uniq.each do |role| %>
+  <li><%= role.name %></li>
+<% end %>
+</ul>

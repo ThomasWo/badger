@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         get :import
         post :import_csv
         get :export
+        get :export_blanks
       end
     end
   end
