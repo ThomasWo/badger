@@ -1,0 +1,10 @@
+<%= form_for attendee do |form| %>
+  <%= form.label :first_name, "First Name" %>
+  <%= form.text_field :first_name %>
+  <%= form.label :last_name, "Last Name" %>
+  <%= form.text_field :last_name %>
+  <%= form.label :email, "Email" %>
+  <%= form.text_field :email %>
+
+  <%= form.submit %>
+<% end %>
