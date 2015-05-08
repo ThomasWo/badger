@@ -14,7 +14,6 @@
       <% if current_user.super_admin %>
         <%= link_to "Users", users_path %>
         <%= link_to "Events", events_path %>
-        <%= link_to "Attendees", attendees_path %>
       <% end %>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     <% else %>
