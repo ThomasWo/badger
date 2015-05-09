@@ -4,6 +4,8 @@ class ExportAttendees
   def call
     if context.attendees.present?
       context.pdf = export(context.attendees)
+
+      context.attendees.update_all(exported: true)
     elsif context.blanks && context.event.present?
       context.pdf = export_blanks(context.event)
     else

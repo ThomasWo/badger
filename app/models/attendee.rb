@@ -6,6 +6,10 @@ class Attendee < ActiveRecord::Base
     order("last_name asc, first_name asc")
   end
 
+  def self.pending
+    where(exported: false)
+  end
+
   def name
     [first_name, last_name].join(" ")
   end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events do
+    resources :roles
     resources :attendees do
       collection do
         get :import

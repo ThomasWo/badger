@@ -12,6 +12,13 @@
 <h3>Roles</h3>
 <ul>
 <% @event.roles.uniq.each do |role| %>
-  <li><%= role.name %></li>
+  <li style="background-color: #<%= role.border_color %>"><%= link_to role.name, event_role_path(@event, role) %></li>
+<% end %>
+</ul>
+
+<h3>Sponsors</h3>
+<ul>
+<% @event.sponsor_companies.each do |sponsor| %>
+  <li><%= sponsor.company %></li>
 <% end %>
 </ul>
