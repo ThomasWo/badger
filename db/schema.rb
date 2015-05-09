@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508015218) do
+ActiveRecord::Schema.define(version: 20150508225913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150508015218) do
     t.datetime "updated_at",           null: false
     t.integer  "event_id"
     t.integer  "role_id"
+    t.boolean  "exported"
   end
 
   add_index "attendees", ["event_id"], name: "index_attendees_on_event_id", using: :btree
@@ -49,6 +50,15 @@ ActiveRecord::Schema.define(version: 20150508015218) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "sponsor_companies", force: :cascade do |t|
+    t.string   "company"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sponsor_companies", ["event_id"], name: "index_sponsor_companies_on_event_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -74,4 +84,5 @@ ActiveRecord::Schema.define(version: 20150508015218) do
 
   add_foreign_key "attendees", "events"
   add_foreign_key "attendees", "roles"
+  add_foreign_key "sponsor_companies", "events"
 end

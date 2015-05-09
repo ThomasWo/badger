@@ -11,6 +11,7 @@ gem "interactor"
 gem "jbuilder"
 gem "jquery-rails"
 gem "pg"
+gem "prawn"
 gem "sass-rails"
 gem "uglifier"
 
