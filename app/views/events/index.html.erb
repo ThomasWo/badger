@@ -1,6 +1,8 @@
 <h2>Events</h2>
 
-<%= link_to "Add Event", new_event_path %>
+<% if current_user.super_admin %>
+  <%= link_to "Add Event", new_event_path %>
+<% end %>
 
 <table>
   <tr>
@@ -13,8 +15,10 @@
       <td><%= event.name %></td>
       <td>
         <%= link_to "View Attendees", event_attendees_path(event) %>
-        <%= link_to "Edit", edit_event_path(event) %>
-        <%= link_to "Remove", event_path(event), method: :delete %>
+        <% if current_user.super_admin %>
+          <%= link_to "Edit", edit_event_path(event) %>
+          <%= link_to "Remove", event_path(event), method: :delete %>
+        <% end %>
       </td>
     </tr>
   <% end %>
