@@ -12,6 +12,7 @@ gem "jbuilder"
 gem "jquery-rails"
 gem "pg"
 gem "prawn"
+gem "ransack"
 gem "sass-rails"
 gem "uglifier"
 
