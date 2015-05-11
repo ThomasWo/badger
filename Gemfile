@@ -13,8 +13,12 @@ gem "jquery-rails"
 gem "pg"
 gem "prawn"
 gem "ransack"
-gem "sass-rails"
 gem "uglifier"
+
+# Styels
+gem "bourbon"
+gem "neat"
+gem "sass-rails"
 
 group :development, :test do
   gem "pry-rails"
