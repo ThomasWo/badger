@@ -13,7 +13,7 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    @attendee = Attendee.new(attendee_params)
+    @attendee = Attendee.new(attendee_params.merge(exported: false))
 
     if @attendee.save
       redirect_to event_attendees_path(params[:event_id])

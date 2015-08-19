@@ -6,6 +6,10 @@
   <%= form.text_field :last_name %>
   <%= form.label :email, "Email" %>
   <%= form.text_field :email %>
+  <%= form.label :company, "Company" %>
+  <%= form.text_field :company %>
+  <%= form.label :twitter_handle, "Website/Twitter" %>
+  <%= form.text_field :twitter_handle %>
 
   <%= select "attendee", :role_id, options_for_select(@event.roles.uniq.map {|role| [role.name, role.id] }) %>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511004203) do
+ActiveRecord::Schema.define(version: 20150818225923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150511004203) do
     t.integer  "role_id"
     t.boolean  "exported"
     t.boolean  "checked_in",           default: false
+    t.string   "confirmation"
   end
 
   add_index "attendees", ["event_id"], name: "index_attendees_on_event_id", using: :btree
