@@ -29,3 +29,8 @@ group :test do
   gem 'guard-rails'
   gem 'guard-bundler'
 end
+
+
+group :production do
+  gem 'rails_12factor'
+end
