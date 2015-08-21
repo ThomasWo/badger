@@ -7,6 +7,12 @@ class CaseyBadgePdf < Prawn::Document
   def initialize(attendees, event = nil)
     super()
 
+    font_families.update("Helvetica" => {
+      normal: Rails.root.join("vendor/fonts/Helvetica/Helvetica.ttf"),
+      bold:   Rails.root.join("vendor/fonts/Helvetica/Helvetica-Bold.ttf")
+    })
+    font "Helvetica"
+
     if attendees
       @attendees = attendees
       @event = attendees.first.event
